@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201911252035062_InitialMigration.Designer.cs">
       <DependentUpon>201911252035062_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911261530456_Added properties to employee and customer tables.cs" />
+    <Compile Include="Migrations\201911261530456_Added properties to employee and customer tables.Designer.cs">
+      <DependentUpon>201911261530456_Added properties to employee and customer tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomerModel.cs" />
@@ -274,6 +278,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201911252035062_InitialMigration.resx">
       <DependentUpon>201911252035062_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911261530456_Added properties to employee and customer tables.resx">
+      <DependentUpon>201911261530456_Added properties to employee and customer tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
