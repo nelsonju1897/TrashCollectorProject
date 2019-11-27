@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TrashCollector.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TrashCollector.Controllers
 {
@@ -46,15 +47,16 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,firstName,lastName,streetAddress,city,state,zipCode,pickUpDate,balance,isSuspended,extraPickUpDate")] CustomerModel customerModel)
+        public ActionResult Create([Bind(Include = "Id,firstName,lastName,streetAddress,city,state,zipCode,pickUpDate,balance,isSuspended,extraPickUpDate,ApplicationId")] CustomerModel customerModel)
         {
             if (ModelState.IsValid)
             {
+                string userId = User.Identity.GetUserId();
+                customerModel.ApplicationId = userId;
                 db.Customers.Add(customerModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(customerModel);
         }
 

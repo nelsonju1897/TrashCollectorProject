@@ -21,11 +21,8 @@ namespace TrashCollector.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<EmployeeModel> Employees { get; set; }
-        public DbSet<CustomerModel> Customers { get; set; }
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
-        {
-        }
+        public DbSet<CustomerModel> Customers { get; set; }        
+        public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false){}
 
         public static ApplicationDbContext Create()
         {

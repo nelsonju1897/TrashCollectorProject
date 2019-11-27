@@ -12,7 +12,7 @@ namespace TrashCollector
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            //createRolesandUsers();
+            createRolesandUsers();
         }
         
         // In this method we will create default User roles and Admin user for login    
@@ -26,10 +26,10 @@ namespace TrashCollector
 
             // In Startup iam creating first Admin Role and creating a default Admin User     
             
-            if (!roleManager.RoleExists("User"))
+            if (!roleManager.RoleExists("Customer"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "User";
+                role.Name = "Customer";
                 roleManager.Create(role);
 
             }

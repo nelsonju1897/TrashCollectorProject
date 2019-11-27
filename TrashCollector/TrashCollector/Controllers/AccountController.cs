@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TrashCollector.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TrashCollector.Controllers
 {
@@ -172,7 +173,15 @@ namespace TrashCollector.Controllers
                     //Assign Role to user Here       
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
                     //Ends Here     
-                    return RedirectToAction("Index", "Home");
+                    if (model.UserRoles == "Employee")
+                    {
+                        return RedirectToAction("Create", "EmployeeModels");
+                    }
+                    if (model.UserRoles == "Customer")
+                    {
+                        return RedirectToAction("Create", "CustomerModels");
+                    }
+
                 }
                 ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("UserRoles"))
                                           .ToList(), "Name", "Name");
