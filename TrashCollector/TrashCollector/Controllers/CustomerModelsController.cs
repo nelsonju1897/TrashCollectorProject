@@ -18,12 +18,14 @@ namespace TrashCollector.Controllers
         // GET: CustomerModels
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            string userId = User.Identity.GetUserId();
+            return View(db.Customers.Where(c => c.ApplicationId == userId).ToList());
         }
 
         // GET: CustomerModels/Details/5
         public ActionResult Details(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

@@ -21,6 +21,7 @@ namespace TrashCollector.Controllers
         private ApplicationUserManager _userManager;
 
         ApplicationDbContext context;
+        
         public AccountController()
         {
             context = new ApplicationDbContext();
@@ -469,7 +470,8 @@ namespace TrashCollector.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            
+            return RedirectToAction("Index", "CustomerModels");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
