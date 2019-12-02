@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TrashCollector.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TrashCollector.Controllers
 {
@@ -17,7 +18,10 @@ namespace TrashCollector.Controllers
         // GET: EmployeeModels
         public ActionResult Index()
         {
-            return View(db.Employees.ToList());
+            string userId = User.Identity.GetUserId();
+            var myEmp = db.Employees.Where(c => c.ApplicationId == userId).FirstOrDefault();
+            var cust = db.Customers.Where(c => c.zipCode == myEmp.zipCode).Where(a => a.pickUpDate == DateTime.Today.DayOfWeek.ToString()).ToList();
+            return View(cust);
         }
 
         // GET: EmployeeModels/Details/5
@@ -50,6 +54,8 @@ namespace TrashCollector.Controllers
         {
             if (ModelState.IsValid)
             {
+                string userId = User.Identity.GetUserId();
+                employeeModel.ApplicationId = userId;
                 db.Employees.Add(employeeModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -470,8 +470,7 @@ namespace TrashCollector.Controllers
             {
                 return Redirect(returnUrl);
             }
-            
-            return RedirectToAction("Index", "CustomerModels");
+            return RedirectToAction("Index", "EmployeeModels");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

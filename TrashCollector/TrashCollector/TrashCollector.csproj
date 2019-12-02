@@ -252,12 +252,12 @@
     <Content Include="Views\EmployeeModels\Delete.cshtml" />
     <Content Include="Views\EmployeeModels\Details.cshtml" />
     <Content Include="Views\EmployeeModels\Edit.cshtml" />
-    <Content Include="Views\EmployeeModels\Index.cshtml" />
     <Content Include="Views\CustomerModels\Create.cshtml" />
     <Content Include="Views\CustomerModels\Delete.cshtml" />
     <Content Include="Views\CustomerModels\Details.cshtml" />
     <Content Include="Views\CustomerModels\Edit.cshtml" />
     <Content Include="Views\CustomerModels\Index.cshtml" />
+    <Content Include="Views\EmployeeModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
